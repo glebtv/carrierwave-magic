@@ -19,5 +19,4 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "ruby-filemagic"
   gem.add_runtime_dependency "carrierwave"
-  gem.add_runtime_dependency "mime-types"
 end

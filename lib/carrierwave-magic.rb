@@ -27,6 +27,12 @@ module CarrierWave
       end
     end
 
+    GENERIC_CONTENT_TYPES = %w[application/octet-stream binary/octet-stream]
+
+    def generic_content_type?(content_type)
+      GENERIC_CONTENT_TYPES.include? content_type
+    end
+
     ##
     # Changes the file content_type using the ruby-filemagic gem
     #
@@ -38,14 +44,6 @@ module CarrierWave
           file.content_type = new_content_type
         else
           file.instance_variable_set(:@content_type, new_content_type)
-        end
-
-        unless MIME::Types[new_content_type].first.nil?
-          if file.respond_to?(:extension=)
-            file.extension = MIME::Types[new_content_type].first.extensions.first
-          else
-            file.instance_variable_set(:@extension, MIME::Types[new_content_type].first.extensions.first)
-          end
         end
       end
     rescue ::Exception => e

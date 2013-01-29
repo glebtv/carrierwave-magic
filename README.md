@@ -2,11 +2,29 @@
 
 This allows to set file type with ruby-filemagic instead of an extension
 
-It also sets correct file extension with mime-types gem.
-
-I recommend using 'mime_types' gem from git:
+To set correct file extension on resulting files:
+1) Add 'mime-types' gem I reccomend using 'mime_types' 1.20 from git:
 
     gem 'mime-types', github: 'halostatue/mime-types'
+
+2) Add this to your uploader (or any other way)
+
+  def filename
+    if original_filename.present?
+      ext = MIME::Types[file.content_type].nil? ? file.extension : MIME::Types[file.content_type].first.extensions.first
+      if version_name != :jpg
+        "#{secure_token(10)}.#{ext}"
+      else
+        "#{secure_token(10)}.jpg"
+      end
+    end
+  end
+
+  protected
+  def secure_token(length=16)
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
+  end
 
 
 Idea and some of the code from this pull request: https://github.com/jnicklas/carrierwave/pull/949
