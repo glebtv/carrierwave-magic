@@ -11,6 +11,14 @@ module CarrierWave
         e.message << ' (You may need to install the ruby-filemagic gem)'
         raise e
       end
+
+      begin
+        require "mime/types"
+      rescue LoadError => e
+        e.message << " (You may need to install the mime-types gem)"
+        raise e
+      end
+
     end
 
     module ClassMethods
@@ -30,6 +38,12 @@ module CarrierWave
           file.content_type = new_content_type
         else
           file.instance_variable_set(:@content_type, new_content_type)
+        end
+
+        if file.respond_to?(:extension=)
+          file.extension = MIME::Types[new_content_type].extensions.first
+        else
+          file.instance_variable_set(:@extension, MIME::Types[new_content_type].extensions.first)
         end
       end
     rescue ::Exception => e

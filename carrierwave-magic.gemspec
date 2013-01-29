@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = CarrierWave::Magic::VERSION
   gem.authors       = ["Gleb Tv"]
   gem.email         = ["glebtv@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
+  gem.description   = %q{Set }
   gem.summary       = %q{TODO: Write a gem summary}
   gem.homepage      = ""
 
@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency "ruby-filemagic"
   gem.add_runtime_dependency "carrierwave"
+  gem.add_runtime_dependency "mime-types"
 end
