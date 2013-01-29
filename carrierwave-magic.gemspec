@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = CarrierWave::Magic::VERSION
   gem.authors       = ["Gleb Tv"]
   gem.email         = ["glebtv@gmail.com"]
-  gem.description   = %q{Set }
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{ruby-filemagic and mime-types for carrierwave}
+  gem.summary       = %q{Set file mime type with ruby-filemagic and extension from mime type with mime-types for carrierwave}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
