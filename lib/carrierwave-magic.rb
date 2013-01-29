@@ -40,10 +40,12 @@ module CarrierWave
           file.instance_variable_set(:@content_type, new_content_type)
         end
 
-        if file.respond_to?(:extension=)
-          file.extension = MIME::Types[new_content_type].extensions.first
-        else
-          file.instance_variable_set(:@extension, MIME::Types[new_content_type].extensions.first)
+        unless MIME::Types[new_content_type].first.nil?
+          if file.respond_to?(:extension=)
+            file.extension = MIME::Types[new_content_type].first.extensions.first
+          else
+            file.instance_variable_set(:@extension, MIME::Types[new_content_type].first.extensions.first)
+          end
         end
       end
     rescue ::Exception => e

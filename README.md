@@ -4,6 +4,11 @@ This allows to set file type with ruby-filemagic instead of an extension
 
 It also sets correct file extension with mime-types gem.
 
+I recommend using 'mime_types' gem from git:
+
+    gem 'mime-types', github: 'halostatue/mime-types'
+
+
 Idea and some of the code from this pull request: https://github.com/jnicklas/carrierwave/pull/949
 
 ## Installation
