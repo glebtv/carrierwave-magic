@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["glebtv@gmail.com"]
   gem.description   = %q{ruby-filemagic and mime-types for carrierwave}
   gem.summary       = %q{Set file mime type with ruby-filemagic and extension from mime type with mime-types for carrierwave}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/glebtv/carrierwave-magic"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
