@@ -11,14 +11,6 @@ module CarrierWave
         e.message << ' (You may need to install the ruby-filemagic gem)'
         raise e
       end
-
-      begin
-        require "mime/types"
-      rescue LoadError => e
-        e.message << " (You may need to install the mime-types gem)"
-        raise e
-      end
-
     end
 
     module ClassMethods
