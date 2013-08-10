@@ -4,11 +4,7 @@ This allows to set file type with ruby-filemagic instead of an extension
 
 To set correct file extension on resulting files on disk:
 
-1) Add 'mime-types' gem
-
-    gem 'mime-types'
-
-2) Add this to your uploader (or any other way)
+Add this to your uploader (or any other way)
 
     def filename
         if original_filename.present?
